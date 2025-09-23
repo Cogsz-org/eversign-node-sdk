@@ -12,7 +12,7 @@ var config = require('./config');
 var client = new Client(config.accessKey, config.businessId);
 
 var document = new Document();
-// document.setSandbox(true);
+// document.setSandbox(1);
 document.setTitle("Title goes here");
 document.setRequesterEmail("tester@gmail.com");
 document.setIsDraft(false);
