@@ -161,7 +161,7 @@ declare module 'eversign/lib/Document' {
         public getReminders(): boolean
         public getRequesterEmail(): string
         public getRequireAllSigners(): boolean
-        public getSandbox(): boolean
+        public getSandbox(): 0 | 1
         public getSigners(): Signer[]
         public getTemplateId(): string
         public getTitle(): string
@@ -183,7 +183,7 @@ declare module 'eversign/lib/Document' {
         public setReminders(newReminders: boolean): void
         public setRequesterEmail(email: string): void
         public setRequireAllSigners(newRequireAllSigners: boolean): void
-        public setSandbox(sandbox: boolean): void
+        public setSandbox(sandbox: 0 | 1): void
         public setSigners(signers: Signer[]): void
         public setTemplateId(templateId?: string | undefined): void
         public setTitle(title: string): void
@@ -198,9 +198,9 @@ declare module 'eversign/lib/Document' {
             documentHash : string,
 
             /**
-             * Sandboxmode
+             * Sandbox mode
              */
-            sandbox : boolean,
+            sandbox : 0 | 1,
 
             /**
              * E-Mail address of the requester
@@ -339,7 +339,7 @@ declare module 'eversign/lib/Document' {
             meta: Record<string, string>,
 
             /**
-             * Wheter the document has embedded/iframe signing enabled
+             * Whether the document has embedded/iframe signing enabled
              */
             embeddedSigningEnabled: boolean,
 
@@ -421,7 +421,7 @@ declare module 'eversign/lib/DocumentTemplate' {
         public getRecipients(): Recipient[]
         public getRedirect(): string
         public getRedirectDecline(): string
-        public getSandbox(): boolean
+        public getSandbox(): 0 | 1
         public getSigners(): Signer[]
         public getTemplateId(): string
         public getTitle(): string
@@ -435,7 +435,7 @@ declare module 'eversign/lib/DocumentTemplate' {
         public setRecipients(recipients: Recipient[]): void
         public setRedirect(redirect: string): void
         public setRedirectDecline(redirect_decline: string): void
-        public setSandbox(sandbox: boolean): void
+        public setSandbox(sandbox: 0 | 1): void
         public setSigners(signers: Signer[]): void
         public setTemplateId(templateId?: string | undefined): void
         public setTitle(title: string): void
@@ -452,9 +452,9 @@ declare module 'eversign/lib/DocumentTemplate' {
              */
             title: string,
             /**
-             * Sandboxmode
+             * Sandbox mode
              */
-            sandbox: boolean,
+            sandbox: 0 | 1,
             /**
              * Used in order to specify a document message.
              */
@@ -914,17 +914,17 @@ declare module 'eversign/lib/Signer' {
             /**
              * This parameter is used to specify if signer authentication by SMS is enabled.
              */
-            signerAuthenticationSmsEnabled: boolean,       
+            signerAuthenticationSmsEnabled: boolean,
             /**
              * If signer authentication by SMS is enabled, this parameter is used to specify the phone number to which SMS validation will be delivered. ITU call prefix can start both with 00 or + sign.
              */
             signerAuthenticationPhoneNumber: string,
             /**
-             * This parameter can be used to specify a custom message (upon document delivery) for the current signer. Please note that for the current signer the general document message will be overriden by this parameter. 
+             * This parameter can be used to specify a custom message (upon document delivery) for the current signer. Please note that for the current signer the general document message will be overriden by this parameter.
              */
             message: string,
             /**
-             * This parameter is used to specify the language in which signing notifications (emails), the document status page and the signature process will appear for this signer. 
+             * This parameter is used to specify the language in which signing notifications (emails), the document status page and the signature process will appear for this signer.
              */
             language: undefined,
         }
